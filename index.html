@@ -1,1 +1,91 @@
+html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Citations Inspirantes</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f0f8ff;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
 
+    .container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 90%;
+      max-width: 500px;
+    }
+
+    h1 {
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    .quote-box {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+
+    #author {
+      display: block;
+      margin-top: 10px;
+      color: #555;
+      font-style: italic;
+    }
+
+    button {
+      background: #2980b9;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1f6391;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+<h1>✨ Citation du jour</h1>
+    <div class="quote-box">
+      <p id="quote">Chargement...</p>
+      <span id="author"></span>
+    </div>
+    <button onclick="generateQuote()">Nouvelle citation</button>
+  </div>
+
+  <script>
+    const quotes = [
+      { quote: "Commence là où tu es, utilise ce que tu as, fais ce que tu peux.", author: "Arthur Ashe" },
+      { quote: "Tout est possible à celui qui croit.", author: "Marc 9:23" },
+      { quote: "L’inspiration existe, mais elle doit te trouver en train de travailler.", author: "Pablo Picasso" },
+      { quote: "La musique exprime ce qui ne peut être dit et sur quoi il est impossible de rester silencieux.", author: "Victor Hugo" },
+      { quote: "Dieu fait concourir toutes choses au bien de ceux qui l’aiment.", author: "Romains 8:28" }
+    ];
+
+    function generateQuote() {
+      const random = Math.floor(Math.random() * quotes.length);
+      document.getElementById('quote').textContent = quotes[random].quote;
+      document.getElementById('author').textContent = `— ${quotes[random].author}`;
+    }
+
+    // Initial quote
+    generateQuote();
+  </script>
+</body>
+</html>
